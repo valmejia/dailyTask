@@ -6,12 +6,161 @@
   <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
   <link rel="stylesheet" href="../assets/css/app.css">
   <style>
-    .screen { padding-bottom: 0; }
-    .content-area { flex: 1; overflow-y: auto; padding: 20px 16px; }
-    .greeting { font-size: 1.35rem; font-weight: 700; }
-    .greeting-date { font-size: 0.78rem; color: var(--text-muted); margin-top: 2px; }
-    .ver-todo { font-size: 0.78rem; color: var(--purple-light); text-decoration: none; }
-    .ver-todo:hover { color: #fff; }
+    /* ===== RESET: ELIMINAR MAX-WIDTH DE .SCREEN EN ESCRITORIO ===== */
+    @media (min-width: 992px) {
+      .screen {
+        max-width: 100% !important;
+        padding: 0 !important;
+        background: var(--bg-dark);
+      }
+    }
+    
+    .content-area { 
+      flex: 1; 
+      overflow-y: auto; 
+      padding: 20px 16px; 
+    }
+    .greeting { 
+      font-size: 1.35rem; 
+      font-weight: 700; 
+    }
+    .greeting-date { 
+      font-size: 0.78rem; 
+      color: var(--text-muted); 
+      margin-top: 2px; 
+    }
+    .ver-todo { 
+      font-size: 0.78rem; 
+      color: var(--purple-light); 
+      text-decoration: none; 
+    }
+    .ver-todo:hover { 
+      color: #fff; 
+    }
+    
+    /* ===== RESPONSIVE: TABLET ===== */
+    @media (min-width: 768px) and (max-width: 991.98px) {
+      .screen {
+        max-width: 90% !important;
+        margin: 0 auto;
+      }
+      .content-area {
+        padding: 24px 20px;
+      }
+      .greeting {
+        font-size: 1.5rem;
+      }
+      .photo-thumb {
+        width: 80px;
+        height: 80px;
+      }
+      .photo-add {
+        width: 80px;
+        height: 80px;
+        font-size: 1.6rem;
+      }
+    }
+    
+    /* ===== RESPONSIVE: ESCRITORIO ===== */
+    @media (min-width: 992px) {
+      .content-area {
+        padding: 30px 40px;
+        width: 100%;
+        max-width: 100% !important;
+      }
+      .greeting {
+        font-size: 1.6rem;
+      }
+      .greeting-date {
+        font-size: 0.85rem;
+      }
+      .photo-thumb {
+        width: 88px;
+        height: 88px;
+      }
+      .photo-add {
+        width: 88px;
+        height: 88px;
+        font-size: 1.8rem;
+      }
+      .entry-card {
+        padding: 14px 18px;
+      }
+      .entry-card .title {
+        font-size: 1rem;
+      }
+      .entry-card .meta {
+        font-size: 0.8rem;
+      }
+      .section-title {
+        font-size: 0.85rem;
+      }
+      .search-bar {
+        padding: 12px 16px;
+      }
+      .search-bar input {
+        font-size: 1rem;
+      }
+      /* Navbar ocupa 100% del ancho */
+      .app-navbar {
+        max-width: 100% !important;
+        border-radius: 0;
+        padding: 14px 0 10px;
+        width: 100%;
+      }
+      .cal-day {
+        padding: 8px 6px;
+        font-size: 0.85rem;
+      }
+      .cal-day .dow {
+        font-size: 0.7rem;
+      }
+      .cal-day .num {
+        font-size: 1.1rem;
+      }
+      /* MANTENER UNA SOLA COLUMNA */
+      .entries-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .tasks-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+    
+    /* ===== ESCRITORIO GRANDE ===== */
+    @media (min-width: 1200px) {
+      .content-area {
+        padding: 40px 60px;
+      }
+      .photo-thumb {
+        width: 96px;
+        height: 96px;
+      }
+      .photo-add {
+        width: 96px;
+        height: 96px;
+        font-size: 2rem;
+      }
+      .entry-card {
+        padding: 16px 20px;
+      }
+      .entry-card .title {
+        font-size: 1.05rem;
+      }
+      .app-navbar {
+        padding: 16px 0 12px;
+      }
+      .nav-item svg {
+        font-size: 1.5rem;
+      }
+      .nav-item span {
+        font-size: 0.8rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -61,12 +210,12 @@
       </svg>
     </div>
 
-    <!-- Entradas recientes -->
+    <!-- Entradas recientes - UNA SOLA COLUMNA -->
     <div class="d-flex justify-content-between align-items-center mb-2">
       <span class="section-title">Entradas recientes</span>
       <a href="#" class="ver-todo">Ver todo</a>
     </div>
-    <div class="d-flex flex-column gap-2 mb-4">
+    <div class="entries-grid">
       <a href="editarEntrada.php" class="entry-card">
         <div>
           <div class="title">Título</div>
@@ -107,12 +256,12 @@
       </a>
     </div>
 
-    <!-- Tareas pendientes -->
+    <!-- Tareas pendientes - UNA SOLA COLUMNA -->
     <div class="d-flex justify-content-between align-items-center mb-2">
       <span class="section-title">Tareas pendientes</span>
       <a href="tareas.php" class="ver-todo">Ver todo</a>
     </div>
-    <div class="d-flex flex-column gap-2 mb-2">
+    <div class="tasks-grid">
       <a href="tareas.php" class="entry-card" style="border-left-color:#a855f7;">
         <div>
           <div class="title">Título</div>

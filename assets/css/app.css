@@ -140,7 +140,9 @@ body {
   background: var(--bg-card);
   border-radius: 10px;
   padding: 12px 14px;
-  display: flex; align-items: center; justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   gap: 12px;
   text-decoration: none;
   color: inherit;
@@ -179,7 +181,8 @@ body {
 .app-navbar {
   background: var(--bg-card);
   border-top: 1px solid var(--border-color);
-  display: flex; justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
   padding: 12px 0 8px;
 }
 .nav-item {
@@ -275,3 +278,58 @@ body {
 /* ===== VALIDATION ===== */
 .field-error { color: var(--danger); font-size: 0.75rem; margin-top: 4px; }
 .input-icon-danger { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); color: var(--danger); }
+
+/* ================================================================ */
+/* ===== RESPONSIVE: TABLET (md) ===== */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .screen {
+    max-width: 90% !important;
+    margin: 0 auto;
+  }
+}
+
+/* ================================================================ */
+/* ===== RESPONSIVE: ESCRITORIO (lg) ===== */
+@media (min-width: 992px) {
+  /* Expandir el contenedor en escritorio */
+  .screen {
+    max-width: 100% !important;
+    padding: 0 40px;
+    background: transparent;
+  }
+
+  /* Contenedor interno para centrar el contenido */
+  .screen > .content-area,
+  .screen > .px-4,
+  .screen > .container-fluid,
+  .screen > .d-flex {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  /* Navbar más elegante en escritorio */
+  .app-navbar {
+    max-width: 600px;
+    margin: 0 auto;
+    border-radius: 16px 16px 0 0;
+  }
+
+  /* Grid de entradas en escritorio */
+  .entries-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  /* Tareas en grid */
+  .tasks-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  /* Mejor distribución de la foto strip */
+  .photo-strip {
+    justify-content: flex-start;
+  }
+}
